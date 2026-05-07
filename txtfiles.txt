@@ -1,0 +1,527 @@
+Salesforce Cloud Practical
+Design and Develop Custom Application using Salesforce Cloud
+Project Name:
+Student Management System
+AIM
+To design and develop a custom Student Management Application using Salesforce Cloud with objects, relationships, reports, validation rules and dashboards.
+
+REQUIREMENTS
+Salesforce Developer Account
+
+Internet Connection
+
+Web Browser
+
+STEP 1 — Login to Salesforce
+Open browser:
+
+https://login.salesforce.com
+Login using your Salesforce Developer Account.
+
+STEP 2 — Open Setup
+Top-right:
+
+⚙ Gear Icon
+Click:
+
+Setup
+STEP 3 — Create Custom App
+Left search bar:
+
+App Manager
+Open:
+
+App Manager
+Top-right:
+
+New Lightning App
+Fill:
+
+Field	Value
+App Name	Student Management System
+Click:
+
+Next
+Skip logo.
+
+Click:
+
+Next
+Add navigation:
+
+Home
+Click:
+
+Next
+Select:
+
+System Administrator
+Click:
+
+Save & Finish
+STEP 4 — Create Student Object
+Go to:
+
+Object Manager
+Click:
+
+Create → Custom Object
+Fill:
+
+Field	Value
+Label	Student
+Plural Label	Students
+Enable:
+
+Launch New Custom Tab Wizard
+Save.
+
+STEP 5 — Add Fields to Student Object
+Open:
+
+Student → Fields & Relationships
+Create following fields:
+
+Type	Field Name
+Text	Roll Number
+Email	Email
+Phone	Phone Number
+Number	CGPA
+For CGPA:
+
+Length = 3
+
+Decimal Places = 2
+
+Save all fields.
+
+STEP 6 — Create Course Object
+Again:
+
+Object Manager → Create → Custom Object
+Fill:
+
+Field	Value
+Label	Course
+Plural Label	Courses
+Enable tab wizard.
+
+Save.
+
+STEP 7 — Add Fields to Course Object
+Open:
+
+Course → Fields & Relationships
+Create fields:
+
+Type	Field Name
+Text	Course Code
+Number	Credits
+Text	Faculty Name
+Save all fields.
+
+STEP 8 — Create Attendance Object
+Again:
+
+Create → Custom Object
+Fill:
+
+Field	Value
+Label	Attendance
+Plural Label	Attendances
+Save.
+
+STEP 9 — Add Relationships
+Open:
+
+Attendance → Fields & Relationships
+Create Student Relationship
+New Field:
+
+Lookup Relationship
+Related To:
+
+Student
+Save.
+
+Create Course Relationship
+Again:
+
+Lookup Relationship
+Related To:
+
+Course
+Save.
+
+STEP 10 — Add Attendance Percentage
+Create field:
+
+Type	Field
+Percent	Attendance Percentage
+Save.
+
+STEP 11 — Add Tabs to Application
+Open Student Management App.
+
+Top-right:
+
+✏ Pencil Icon
+Click:
+
+Add More Items
+Add:
+
+Students
+Courses
+Attendance
+Save.
+
+STEP 12 — Create Validation Rule
+Go to:
+
+Object Manager → Student
+Open:
+
+Validation Rules
+Click:
+
+New
+Fill:
+
+Field	Value
+Rule Name	CGPA_Check
+Formula:
+
+CGPA__c > 10
+Error Message:
+
+CGPA cannot exceed 10
+Error Location:
+
+Field → CGPA
+Save.
+
+STEP 13 — Create Records
+Open:
+
+Students Tab
+Click:
+
+New
+Add sample student data.
+
+Similarly add:
+
+Courses
+
+Attendance records
+
+STEP 14 — Create Report
+Open:
+
+Reports
+Click:
+
+New Report
+Select report type.
+
+Add chart if available.
+
+Save report:
+
+Top Students Report
+STEP 15 — Create Dashboard
+Open:
+
+Dashboards
+Click:
+
+New Dashboard
+Dashboard Name:
+
+Student Dashboard
+Add:
+
+charts
+
+text widget
+
+report widget
+
+Save dashboard.
+
+OUTPUT
+The Student Management System application is successfully created using Salesforce Cloud with:
+
+Custom Objects
+
+Relationships
+
+Validation Rules
+
+Reports
+
+Dashboard
+
+CONCLUSION
+Thus, a custom Student Management System application was successfully designed and developed using Salesforce Cloud platform.
+
+Viva Questions
+What is Salesforce?
+Cloud-based CRM platform.
+
+What is CRM?
+Customer Relationship Management.
+
+What is Object in Salesforce?
+Database table used to store records.
+
+What is Lookup Relationship?
+Relationship between two objects.
+
+What is Validation Rule?
+Used to restrict invalid data entry.
+
+What is Dashboard?
+Visual representation of reports and analytics.
+
+
+
+
+What you actually did is:
+
+---
+
+# 1. `git init`
+
+```bash id="o44rba"
+git init
+```
+
+### What happened?
+
+You converted your normal HTML folder into a **Git repository**.
+
+Git now starts tracking:
+
+* `index.html`
+* `style.css`
+* `script.js`
+
+A hidden `.git` folder gets created which stores version history.
+
+---
+
+# 2. `git add .`
+
+```bash id="9vs1qd"
+git add .
+```
+
+### What happened?
+
+You told Git:
+
+> “Prepare all files to be saved.”
+
+This is called **staging**.
+
+---
+
+# 3. `git commit`
+
+```bash id="ylk4c6"
+git commit -m "Initial commit"
+```
+
+### What happened?
+
+You created a **snapshot/version** of your project.
+
+Think of commit like:
+
+* Save point in a game
+* Backup version of project
+
+Git stores:
+
+* what files changed
+* when they changed
+* commit message
+
+---
+
+# 4. Created GitHub Repository
+
+On [GitHub](https://github.com?utm_source=chatgpt.com) you created an online repository.
+
+### Why?
+
+To store project online and share it.
+
+---
+
+# 5. `git remote add origin`
+
+```bash id="tnj3wd"
+git remote add origin <repo-link>
+```
+
+### What happened?
+
+You connected:
+
+* Local VS Code project
+  with
+* Online GitHub repository
+
+`origin` means GitHub repo link.
+
+---
+
+# 6. `git push`
+
+```bash id="kfh1yl"
+git push -u origin main
+```
+
+### What happened?
+
+You uploaded your local project files to GitHub.
+
+So now:
+
+* Files exist on your PC
+* AND on GitHub online
+
+---
+
+# 7. `git branch feature`
+
+```bash id="0j7q8n"
+git branch feature
+```
+
+### What happened?
+
+You created another working area called a **branch**.
+
+Purpose:
+
+* Test changes safely
+* Main project stays unaffected
+
+Like creating a duplicate copy to experiment.
+
+---
+
+# 8. `git checkout feature`
+
+```bash id="1e5qt9"
+git checkout feature
+```
+
+### What happened?
+
+You switched from:
+
+* `main`
+  to
+* `feature`
+
+Now any changes happen only in feature branch.
+
+---
+
+# 9. Edited HTML File + Commit
+
+You added some content and committed again.
+
+### Meaning:
+
+Git created another version history entry.
+
+---
+
+# 10. `git merge feature`
+
+```bash id="d48t5u"
+git merge feature
+```
+
+### What happened?
+
+You combined:
+
+* feature branch changes
+  into
+* main branch
+
+So experimental changes become part of main project.
+
+---
+
+# 11. `git pull`
+
+```bash id="lqv7go"
+git pull origin main
+```
+
+### What happened?
+
+Git checks GitHub for latest updates and downloads them to your PC.
+
+Used when:
+
+* Another person changed files
+* Or you changed from another device
+
+---
+
+# Overall Concept
+
+You basically learned:
+
+| Operation | Meaning                   |
+| --------- | ------------------------- |
+| `init`    | Start Git tracking        |
+| `add`     | Prepare files             |
+| `commit`  | Save version              |
+| `push`    | Upload to GitHub          |
+| `pull`    | Download latest version   |
+| `branch`  | Create separate workspace |
+| `merge`   | Combine branches          |
+
+---
+
+# Real-Life Example
+
+Imagine project like assignment notebook:
+
+| Git Feature | Real Life                   |
+| ----------- | --------------------------- |
+| Commit      | Saving progress             |
+| Branch      | Rough notebook copy         |
+| Merge       | Copying rough work to final |
+| Push        | Upload to Google Drive      |
+| Pull        | Download latest copy        |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

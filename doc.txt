@@ -1,0 +1,522 @@
+# Docker Container Environment — Viva Explanation
+
+---
+
+# Step 1: Create Dockerfile
+
+Command:
+
+```bash id="g4m8qx"
+notepad Dockerfile
+```
+
+Inside file:
+
+```dockerfile id="p2v7wl"
+FROM ubuntu
+CMD ["echo", "Docker Container Environment Created"]
+```
+
+### Explanation
+
+This file contains instructions for Docker.
+
+* `FROM ubuntu`
+  → Use Ubuntu Linux as base environment
+
+* `CMD [...]`
+  → When container starts, print the message
+
+Dockerfile acts like a recipe.
+
+---
+
+# Step 2: Build Docker Image
+
+Command:
+
+```bash id="u7k3rm"
+docker build -t mydocker .
+```
+
+### Explanation
+
+This command:
+
+* reads Dockerfile
+* downloads Ubuntu image if not present
+* creates a new Docker image
+* names it `mydocker`
+
+### Meaning of Parts
+
+| Part           | Meaning                              |
+| -------------- | ------------------------------------ |
+| `docker build` | Create image                         |
+| `-t`           | Tag/name the image                   |
+| `mydocker`     | Image name                           |
+| `.`            | Current folder containing Dockerfile |
+
+### Output Meaning
+
+```text id="x1n5qp"
+Successfully built
+Successfully tagged mydocker:latest
+```
+
+means image creation successful.
+
+---
+
+# Step 3: Display Docker Images
+
+Command:
+
+```bash id="z9m2vl"
+docker images
+```
+
+### Explanation
+
+Shows all Docker images stored in system.
+
+### Output
+
+```text id="v4q8wr"
+mydocker
+ubuntu
+```
+
+means:
+
+* Ubuntu base image exists
+* Custom image `mydocker` created successfully
+
+---
+
+# Step 4: Run Docker Container
+
+Command:
+
+```bash id="k6x1pn"
+docker run mydocker
+```
+
+### Explanation
+
+This command:
+
+* starts a container from `mydocker` image
+* runs Ubuntu environment
+* executes CMD instruction
+
+### Output
+
+```text id="r7w3qy"
+Docker Container Environment Created
+```
+
+This output is printed from inside the container.
+
+After printing, container stops automatically.
+
+---
+
+# Step 5: View Containers
+
+Command:
+
+```bash id="m3v9lk"
+docker ps -a
+```
+
+### Explanation
+
+Displays all containers:
+
+* running
+* stopped
+
+Docker automatically gives random names to containers.
+
+---
+
+# Step 6: View Logs
+
+Command:
+
+```bash id="t8q2wr"
+docker logs CONTAINER_ID
+```
+
+### Explanation
+
+Shows output generated inside container.
+
+Example:
+
+```text id="p5x7mn"
+Docker Container Environment Created
+```
+
+---
+
+# Important Viva Questions
+
+## What is Docker?
+
+Docker is a platform used to create and run containers.
+
+---
+
+## What is a Container?
+
+A container is a lightweight isolated environment used to run applications.
+
+---
+
+## What is Dockerfile?
+
+Dockerfile is a text file containing instructions to build Docker images.
+
+---
+
+## What is Docker Image?
+
+Docker image is a template used to create containers.
+
+---
+
+## Difference Between Image and Container?
+
+| Image    | Container        |
+| -------- | ---------------- |
+| Template | Running instance |
+| Static   | Active/running   |
+
+---
+
+## Why Ubuntu Used?
+
+Ubuntu provides a Linux base environment for the container.
+
+---
+
+## What Does `docker build` Do?
+
+Creates Docker image using instructions from Dockerfile.
+
+---
+
+## What Does `docker run` Do?
+
+Starts a container from an image.
+
+---
+
+# Simple Flow
+
+```text id="y2m8ql"
+Dockerfile → Build Image → Run Container → Output Generated
+```
+
+Docker Container Environment in Ubuntu — Complete Steps From Installation
+
+---
+
+# Step 1: Open Ubuntu Terminal
+
+Open Ubuntu application.
+
+---
+
+# Step 2: Update Ubuntu Packages
+
+Command:
+
+```bash id="u4m8qx"
+sudo apt update
+```
+
+### Explanation
+
+Updates package list from Ubuntu repositories.
+
+---
+
+# Step 3: Install Docker
+
+Command:
+
+```bash id="r7x1wl"
+sudo apt install docker.io -y
+```
+
+### Explanation
+
+Installs Docker in Ubuntu.
+
+* `docker.io` → Docker package
+* `-y` → Automatically says yes
+
+---
+
+# Step 4: Start Docker Service
+
+Command:
+
+```bash id="k2v9pn"
+sudo systemctl start docker
+```
+
+### Explanation
+
+Starts Docker engine/service.
+
+---
+
+# Step 5: Enable Docker
+
+Command:
+
+```bash id="m5q3wr"
+sudo systemctl enable docker
+```
+
+### Explanation
+
+Automatically starts Docker whenever Ubuntu starts.
+
+---
+
+# Step 6: Check Docker Installation
+
+Command:
+
+```bash id="t8w7mv"
+docker --version
+```
+
+### Explanation
+
+Verifies Docker installation.
+
+Example output:
+
+```text id="x1n4ql"
+Docker version 27.x.x
+```
+
+---
+
+# Step 7: Create Project Folder
+
+Command:
+
+```bash id="p6r2vn"
+mkdir dockerprac
+```
+
+### Explanation
+
+Creates folder for Docker practical files.
+
+---
+
+# Step 8: Open Folder
+
+Command:
+
+```bash id="v9k4pl"
+cd dockerprac
+```
+
+### Explanation
+
+Moves into project directory.
+
+---
+
+# Step 9: Create Dockerfile
+
+Command:
+
+```bash id="q3x7mr"
+nano Dockerfile
+```
+
+Paste:
+
+```dockerfile id="y5m1kr"
+FROM ubuntu
+CMD ["echo", "Docker Container Environment Created"]
+```
+
+Save:
+
+* CTRL + O
+* Enter
+* CTRL + X
+
+---
+
+# Explanation of Dockerfile
+
+| Line          | Meaning                           |
+| ------------- | --------------------------------- |
+| `FROM ubuntu` | Use Ubuntu Linux as base image    |
+| `CMD [...]`   | Run command when container starts |
+
+Dockerfile contains instructions for Docker.
+
+---
+
+# Step 10: Build Docker Image
+
+Command:
+
+```bash id="l7q3wl"
+docker build -t mydocker .
+```
+
+### Explanation
+
+This command:
+
+* reads Dockerfile
+* downloads Ubuntu image
+* creates custom image
+* names image `mydocker`
+
+### Meaning
+
+| Part           | Meaning        |
+| -------------- | -------------- |
+| `docker build` | Create image   |
+| `-t`           | Tag/name image |
+| `mydocker`     | Image name     |
+| `.`            | Current folder |
+
+---
+
+# Step 11: Show Docker Images
+
+Command:
+
+```bash id="u2v8pn"
+docker images
+```
+
+### Explanation
+
+Displays all Docker images stored in system.
+
+Example:
+
+```text id="m4x1qy"
+mydocker
+ubuntu
+```
+
+---
+
+# Step 12: Run Docker Container
+
+Command:
+
+```bash id="r9k5mv"
+docker run mydocker
+```
+
+### Explanation
+
+Starts container from `mydocker` image.
+
+Container:
+
+* starts Ubuntu
+* executes command
+* prints message
+* stops automatically
+
+Output:
+
+```text id="p3w7lr"
+Docker Container Environment Created
+```
+
+---
+
+# Step 13: Show Containers
+
+Command:
+
+```bash id="x6m2qn"
+docker ps -a
+```
+
+### Explanation
+
+Displays all containers:
+
+* running
+* stopped
+
+---
+
+# Step 14: View Logs
+
+Command:
+
+```bash id="k8v4pl"
+docker logs CONTAINER_ID
+```
+
+### Explanation
+
+Shows output generated inside container.
+
+---
+
+# Important Viva Questions
+
+## What is Docker?
+
+Docker is a platform used to create and run containers.
+
+---
+
+## What is Dockerfile?
+
+A text file containing instructions to create Docker images.
+
+---
+
+## What is Docker Image?
+
+A template used to create containers.
+
+---
+
+## What is Container?
+
+A lightweight isolated environment for applications.
+
+---
+
+## Difference Between Image and Container?
+
+| Image    | Container        |
+| -------- | ---------------- |
+| Template | Running instance |
+| Static   | Active           |
+
+---
+
+# Simple Flow
+
+```text id="t5x1mq"
+Install Docker → Create Dockerfile → Build Image → Run Container
+```
+
+
